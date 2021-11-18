@@ -1,0 +1,5 @@
+{
+  "auth": {
+    "default_auth_provider": "firebase"
+  }
+}
