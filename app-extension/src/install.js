@@ -6,5 +6,8 @@
  */
 
 module.exports = function (api) {
-  api.render('./templates')
+  api.render('./templates', {
+    features: api.prompts.features,
+    authProviderPackage: api.prompts.auth_provider_package
+  })
 }
