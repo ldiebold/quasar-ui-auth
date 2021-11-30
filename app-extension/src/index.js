@@ -6,13 +6,13 @@
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/IndexAPI.js
  */
 
-function extendConf (conf) {
+function extendConf (conf, api) {
   // register our boot file
-  conf.boot.push('~quasar-app-extension-firebase/src/boot/registerFirebase.js')
-  conf.boot.push('~quasar-app-extension-firebase/src/boot/registerAuthRoutes.js')
+  conf.boot.push('~quasar-app-extension-auth/src/boot/registerAuthRoutes.js')
+  conf.boot.push('../auth/authProvidersBoot.js')
 
   // make sure app extension files & ui package gets transpiled
-  conf.build.transpileDependencies.push(/quasar-app-extension-firebase[\\/]src/)
+  conf.build.transpileDependencies.push(/quasar-app-extension-auth[\\/]src/)
 
   conf.framework.plugins.push('Loading')
 }
@@ -25,13 +25,13 @@ module.exports = function (api) {
   api.compatibleWith('@quasar/app', '^3.0.0')
 
   // Uncomment the line below if you provide a JSON API for your component
-  // api.registerDescribeApi('FirebaseRegisterForm', '~quasar-ui-firebase/src/components/FirebaseRegisterForm.json')
+  // api.registerDescribeApi('AuthRegisterForm', '~quasar-ui-auth/src/components/AuthRegisterForm.json')
 
   // We extend /quasar.conf.js
-  api.extendQuasarConf(extendConf)
+  api.extendQuasarConf(extendConf, api)
 
-  // Add webpack alias for firebase-actions
+  // Add webpack alias for auth-actions
   api.chainWebpack((chain) => {
-    chain.resolve.alias.set('firebase-actions', api.resolve.src('actions/firebase'))
+    chain.resolve.alias.set('auth', api.resolve.src('auth'))
   })
 }

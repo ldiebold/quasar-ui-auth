@@ -1,10 +1,10 @@
-import { useSignOut } from 'firebase-composables'
+import { useLogout } from 'auth-composables'
 import { useRouter } from 'vue-router'
 
 export default () => {
   const router = useRouter()
 
-  const { signOut, loading } = useSignOut()
+  const { signOut, loading } = useLogout()
 
   async function onSignOutClicked () {
     await signOut()

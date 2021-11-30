@@ -16,49 +16,49 @@ module.exports = [
       {
         name: 'Identifier password Register (e.g. email password)',
         value: {
-          id: 'authProvider:identityPassword:register',
+          id: 'identityPassword:register',
           composable: 'useIdentityPasswordRegister'
         }
       },
       {
         name: 'Identifier password login (e.g. email password)',
         value: {
-          id: 'authProvider:identityPassword:login',
+          id: 'identityPassword:login',
           composable: 'useIdentityPasswordLogin'
         }
       },
       {
         name: 'Logout',
         value: {
-          id: 'authProvider:logout',
+          id: 'logout',
           composable: 'useLogout'
         }
       },
       {
         name: 'Facebook Popup Auth',
         value: {
-          id: 'socialAuth:popup:facebook',
+          id: 'popup:facebook',
           composable: 'useFacebookPopupAuth'
         }
       },
       {
         name: 'Twitter Popup Auth',
         value: {
-          id: 'socialAuth:popup:twitter',
+          id: 'popup:twitter',
           composable: 'useTwitterPopupAuth'
         }
       },
       {
         name: 'Github Popup Auth',
         value: {
-          id: 'socialAuth:popup:github',
+          id: 'popup:github',
           composable: 'useGithubPopupAuth'
         }
       },
       {
         name: 'Google Popup Auth',
         value: {
-          id: 'socialAuth:popup:google',
+          id: 'popup:google',
           composable: 'useGooglePopupAuth'
         }
       }

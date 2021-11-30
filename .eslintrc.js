@@ -61,6 +61,7 @@ module.exports = {
     'one-var': 'off',
     'no-void': 'off',
     'multiline-ternary': 'off',
+    'comma-dangle': ['always'],
 
     'import/first': 'off',
     'import/named': 'error',

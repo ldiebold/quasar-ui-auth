@@ -1,9 +1,9 @@
-import { useIdentityPasswordRegister } from 'firebase-composables'
+import { useIdentityPasswordRegister } from 'auth-composables'
 import { useRouter } from 'vue-router'
 
 export default () => {
   const router = useRouter()
-  const emailRegisterService = useEmailRegister()
+  const emailRegisterService = useIdentityPasswordRegister()
 
   async function onRegisterClicked () {
     try {

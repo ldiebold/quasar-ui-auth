@@ -1,5 +1,5 @@
 import { useRouter } from 'vue-router'
-import { useEmailSignIn } from 'firebase-composables'
+import { useIdentityPasswordLogin } from 'auth-composables'
 
 export default () => {
   const router = useRouter()
@@ -9,7 +9,7 @@ export default () => {
     error,
     hasError,
     signIn
-  } = useEmailSignIn()
+  } = useIdentityPasswordLogin()
 
   async function onSignInClicked () {
     try {

@@ -1,6 +1,9 @@
 {
   "auth": {
-    "auth_provider_package": "firebase-composables",
+    "authProvider": {
+      "identifier": "firebase",
+      "packageName": "firebase-composables"
+    },
     "firebase_config": "",
     "features": [
       {
