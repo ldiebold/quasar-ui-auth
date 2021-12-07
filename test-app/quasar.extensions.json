@@ -4,35 +4,18 @@
       "identifier": "firebase",
       "packageName": "firebase-composables"
     },
-    "firebase_config": "",
     "features": [
       {
-        "id": "authProvider:identityPassword:register",
+        "id": "identityPassword:register",
         "composable": "useIdentityPasswordRegister"
       },
       {
-        "id": "authProvider:identityPassword:login",
+        "id": "identityPassword:login",
         "composable": "useIdentityPasswordLogin"
       },
       {
-        "id": "authProvider:logout",
-        "composable": "useLogout"
-      },
-      {
-        "id": "socialAuth:popup:facebook",
-        "composable": "useFacebookPopupAuth"
-      },
-      {
-        "id": "socialAuth:popup:twitter",
-        "composable": "useTwitterPopupAuth"
-      },
-      {
-        "id": "socialAuth:popup:github",
-        "composable": "useGithubPopupAuth"
-      },
-      {
-        "id": "socialAuth:popup:google",
-        "composable": "useGooglePopupAuth"
+        "id": "identityPassword:logout",
+        "composable": "useIdentityPasswordLogout"
       }
     ]
   }

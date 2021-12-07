@@ -3,20 +3,34 @@ import { useRouter } from 'vue-router'
 
 export default () => {
   const router = useRouter()
-  const emailRegisterService = useIdentityPasswordRegister()
+  const {
+    form,
+    loading,
+    errors,
+    hasErrors,
+    validationErrors,
+    hasValidationErrors,
+    register,
+    customFields,
+  } = useIdentityPasswordRegister()
 
   async function onRegisterClicked () {
-    try {
-      await emailRegisterService.register()
+    await register()
+    if (!hasErrors.value) {
       router.push('/')
-    } catch (error) {
-
     }
   }
 
   return {
-    ...emailRegisterService,
     onRegisterClicked,
-    router
+    form,
+    customFields,
+    loading,
+    errors,
+    hasErrors,
+    validationErrors,
+    hasValidationErrors,
+    register,
+    router,
   }
 }

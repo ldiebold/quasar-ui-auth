@@ -9,6 +9,6 @@ module.exports = function (api) {
   api.render('./templates', {
     features: api.prompts.features,
     authProviderPackage: api.prompts.authProvider.packageName,
-    authProviderIdentifier: api.prompts.authProvider.identifier
+    authProviderIdentifier: api.prompts.authProvider.identifier,
   })
 }

@@ -11,19 +11,19 @@ module.exports = function () {
           name: 'Laravel Sanctum',
           value: {
             identifier: 'sanctum',
-            packageName: 'sanctum-composables'
-          }
+            packageName: 'sanctum-composables',
+          },
         },
         {
           name: 'Firebase',
           value: {
             identifier: 'firebase',
-            packageName: 'firebase-composables'
-          }
-        }
-      ]
+            packageName: 'firebase-composables',
+          },
+        },
+      ],
     },
-    ...firebasePrompts
+    ...firebasePrompts,
     // What would you like to scaffold
   ]
 }

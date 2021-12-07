@@ -65,7 +65,7 @@ export default {
 
 ## UMD variant
 
-Exports `window.quasarFirebase`.
+Exports `window.quasarAuth`.
 
 Add the following tag(s) after the Quasar ones:
 

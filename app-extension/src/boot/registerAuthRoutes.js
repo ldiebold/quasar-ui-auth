@@ -1,36 +1,38 @@
 import { boot } from 'quasar/wrappers'
-import { useAuthenticatedRedirector, useUnauthenticatedRedirector } from 'firebase-composables'
-import { Loading } from 'quasar'
 
-export default boot(({ router, app }) => {
-  const authenticatedRedirector = useAuthenticatedRedirector('/dashboard', router)
-  const unauthenticatedRedirector = useUnauthenticatedRedirector('/login', router)
-
-  authenticatedRedirector.onChecked.value = () => Loading.hide()
-  unauthenticatedRedirector.onChecked.value = () => Loading.hide()
-
-  router.beforeEach((to, from) => {
-    if (to.meta.authOnly) {
-      Loading.show()
-      unauthenticatedRedirector.execOnAuthStateEnsured()
-    }
-
-    if (to.meta.unauthOnly) {
-      authenticatedRedirector.execOnAuthStateEnsured()
-    }
-  })
-
+export default boot(({ router }) => {
   router.addRoute('/', {
-    name: 'firebase.register',
+    name: 'auth.register',
     path: '/register',
     meta: { unauthOnly: true },
-    component: () => import('pages/firebase/FirebaseRegisterPage.vue')
+    component: () => import('src/auth/pages/AuthIdentityPasswordRegisterPage.vue'),
   })
 
   router.addRoute('/', {
-    name: 'firebase.login',
+    name: 'auth.login',
     path: '/login',
     meta: { unauthOnly: true },
-    component: () => import('pages/firebase/FirebaseSignInPage.vue')
+    component: () => import('src/auth/pages/AuthIdentityPasswordLoginPage.vue'),
+  })
+
+  router.addRoute('/', {
+    name: 'auth.requestPasswordReset',
+    path: '/forgot-password',
+    meta: { unauthOnly: true },
+    component: () => import('src/auth/pages/AuthPasswordResetViaEmailPage.vue'),
+  })
+
+  router.addRoute('/', {
+    path: '/',
+    component: () => import('layouts/MainLayout.vue'),
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        name: 'dashboard',
+        component: () => import('src/pages/UserDashboard.vue'),
+        meta: { authOnly: true },
+      },
+    ],
   })
 })

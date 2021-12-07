@@ -17,6 +17,6 @@ export default () => {
   return {
     ...emailRegisterService,
     onRegisterClicked,
-    router
+    router,
   }
 }

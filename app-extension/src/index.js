@@ -32,6 +32,7 @@ module.exports = function (api) {
 
   // Add webpack alias for auth-actions
   api.chainWebpack((chain) => {
+    console.log(api.resolve.src('auth'))
     chain.resolve.alias.set('auth', api.resolve.src('auth'))
   })
 }

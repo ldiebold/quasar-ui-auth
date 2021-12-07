@@ -4,8 +4,8 @@
     "baseUrl": ".",
     // Relative to "baseUrl"
     "paths": {
-      "firebase-actions/*": [
-        "src/actions/firebase/*"
+      "auth/*": [
+        "src/auth/*"
       ]
     }
   }

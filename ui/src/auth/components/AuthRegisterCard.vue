@@ -1,14 +1,14 @@
 <script setup>
 import { QCard, QBanner, QCardSection, QBtn } from 'quasar'
-import useRegister from 'firebase-actions/useRegister'
-import FirebaseRegisterForm from 'src/auth/components/FirebaseRegisterForm.vue'
+import useRegister from 'auth/actions/useRegister'
+import AuthRegisterForm from 'src/auth/components/AuthRegisterForm.vue'
 
 const {
   form,
   loading,
   error,
   hasError,
-  onRegisterClicked
+  onRegisterClicked,
 } = useRegister()
 </script>
 
@@ -16,7 +16,7 @@ const {
   <q-card>
     <q-card-section class="text-center">
       <!-- Register Form -->
-      <FirebaseRegisterForm
+      <AuthRegisterForm
         v-model:email="form.email"
         v-model:password="form.password"
       />

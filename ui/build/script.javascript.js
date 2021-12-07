@@ -65,7 +65,7 @@ const builds = [
         input: pathResolve('../src/index.umd.js')
       },
       output: {
-        name: 'quasarFirebase',
+        name: 'quasarAuth',
         file: pathResolve('../dist/index.umd.js'),
         format: 'umd'
       }
@@ -114,7 +114,7 @@ function addAssets(builds, type, injectName) {
           output: {
             file: addExtension(pathResolve(`../dist/${type}/${file}`), 'umd'),
             format: 'umd',
-            name: `quasarFirebase.${injectName}.${name}`
+            name: `quasarAuth.${injectName}.${name}`
           }
         },
         build: {
@@ -134,14 +134,9 @@ function genConfig(opts) {
   Object.assign(opts.rollup.input, {
     plugins: rollupPlugins,
     external: [
-      'firebase-actions',
       'vue',
       'quasar',
-      'firebase',
-      'firebase/auth',
       'vue-router',
-      'firebase/app',
-      'firebase/firestore',
       '@vueuse/core'
     ]
   })

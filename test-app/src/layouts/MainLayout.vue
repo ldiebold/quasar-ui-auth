@@ -14,11 +14,9 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Firebase Auth
-        </q-toolbar-title>
+        <q-toolbar-title>Quasar {{ authProviderUpperFirst }}</q-toolbar-title>
 
-        <FirebaseSignOutButton
+        <AuthLogoutButton
           icon="logout"
           round
           flat
@@ -46,9 +44,13 @@
 
 <script setup>
 import { ref } from 'vue'
-import { FirebaseSignOutButton } from 'quasar-ui-firebase'
+import { AuthLogoutButton } from 'quasar-ui-auth'
+import { getDefaultProvider } from 'auth-composables'
 
 const leftDrawerOpen = ref(false)
+
+const authProvider = getDefaultProvider()
+const authProviderUpperFirst = authProvider.charAt(0).toUpperCase() + authProvider.slice(1)
 
 function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value
