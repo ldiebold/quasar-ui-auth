@@ -1,6 +1,5 @@
 <script setup>
 import AuthRegisterCard from 'src/auth/components/AuthRegisterCard.vue'
-
 </script>
 
 <template>
@@ -15,5 +14,17 @@ import AuthRegisterCard from 'src/auth/components/AuthRegisterCard.vue'
       </h5>
       <AuthRegisterCard />
     </div>
+  </div>
+  <div
+    class="absolute-top-right q-pa-md"
+  >
+    <div>Already have an account?</div>
+    <q-btn
+      no-caps
+      label="login"
+      flat
+      class="full-width"
+      :to="{ name: 'auth.login' }"
+    />
   </div>
 </template>

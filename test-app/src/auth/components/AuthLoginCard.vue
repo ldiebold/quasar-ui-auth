@@ -11,7 +11,6 @@ const {
   errors,
   validationErrors,
   hasValidationErrors,
-  onForgotPasswordClicked,
 } = useLogin()
 </script>
 
@@ -39,15 +38,6 @@ const {
       label="login"
       unelevated
       @click="onLoginClicked"
-    />
-
-    <q-btn
-      :loading="loading"
-      class="full-width"
-      color="grey-8"
-      label="forgot password"
-      flat
-      @click="onForgotPasswordClicked"
     />
   </q-card>
 </template>

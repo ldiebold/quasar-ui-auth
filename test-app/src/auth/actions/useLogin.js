@@ -11,9 +11,13 @@ export default () => {
     validationErrors,
     hasValidationErrors,
     login,
+    isReauthenticating,
+    resetForm,
+    resetErrors,
   } = useIdentityPasswordLogin()
 
   async function onLoginClicked () {
+    resetErrors()
     await login()
     if (!hasErrors.value) {
       router.push({ name: 'dashboard' })
@@ -34,5 +38,7 @@ export default () => {
     validationErrors,
     hasValidationErrors,
     login,
+    resetForm,
+    isReauthenticating,
   }
 }

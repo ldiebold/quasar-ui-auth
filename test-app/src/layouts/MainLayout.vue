@@ -16,11 +16,13 @@
 
         <q-toolbar-title>Quasar {{ authProviderUpperFirst }}</q-toolbar-title>
 
-        <AuthLogoutButton
-          icon="logout"
+        <q-btn
+          icon="person"
           round
           flat
-        />
+        >
+          <AuthAccountMenu />
+        </q-btn>
       </q-toolbar>
     </q-header>
 
@@ -44,8 +46,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { AuthLogoutButton } from 'quasar-ui-auth'
 import { getDefaultProvider } from 'auth-composables'
+import AuthAccountMenu from 'auth/components/AuthAccountMenu.vue'
 
 const leftDrawerOpen = ref(false)
 

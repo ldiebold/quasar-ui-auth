@@ -1,6 +1,5 @@
 <script setup>
 import AuthLoginCard from 'src/auth/components/AuthLoginCard.vue'
-
 </script>
 
 <template>
@@ -14,6 +13,25 @@ import AuthLoginCard from 'src/auth/components/AuthLoginCard.vue'
         Sign In
       </h5>
       <AuthLoginCard />
+      <q-btn
+        class="full-width q-mt-md"
+        color="grey-6"
+        label="forgot password"
+        flat
+        :to="{ name: 'auth.requestPasswordReset' }"
+      />
     </div>
+  </div>
+  <div
+    class="absolute-top-right q-pa-md"
+  >
+    <div>Need an account?</div>
+    <q-btn
+      no-caps
+      label="register"
+      flat
+      class="full-width"
+      :to="{ name: 'auth.register' }"
+    />
   </div>
 </template>

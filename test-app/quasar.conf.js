@@ -97,6 +97,7 @@ module.exports = configure(function (ctx) {
         '/login': 'http://localhost',
         '/register': 'http://localhost',
         '/logout': 'http://localhost',
+        '/user/password': 'http://localhost',
       },
     },
 

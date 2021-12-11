@@ -20,6 +20,6 @@
   ],
   "dependencies": {
     "firebase-composables": "^1.0.0-alpha.23",
-    "supabase-composables": "^1.0.0-alpha.1"
+    "supabase-composables": "^1.0.0-alpha.11"
   }
 }

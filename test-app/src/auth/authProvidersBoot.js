@@ -14,6 +14,7 @@ import {
   useAuthenticatedRedirector as useFirebaseAuthenticatedRedirector,
   useFetchUser as useFirebaseFetchUser,
   usePasswordResetViaEmail as useFirebasePasswordResetViaEmail,
+  useUpdatePassword as useFirebaseUpdatePassword,
 } from 'firebase-composables'
 import {
   SanctumPlugin,
@@ -27,6 +28,7 @@ import {
   useAuthenticatedRedirector as useSanctumAuthenticatedRedirector,
   useFetchUser as useSanctumFetchUser,
   usePasswordResetViaEmail as useSupabaseSanctumResetViaEmail,
+  useUpdatePassword as useSanctumUpdatePassword,
 } from 'sanctum-composables'
 import {
   SupabasePlugin,
@@ -40,15 +42,16 @@ import {
   useAuthenticatedRedirector as useSupabaseAuthenticatedRedirector,
   useFetchUser as useSupabaseFetchUser,
   usePasswordResetViaEmail as useSupabasePasswordResetViaEmail,
+  useUpdatePassword as useSupabaseUpdatePassword,
 } from 'supabase-composables'
 
 export default boot(({ app }) => {
   app.use(FirebasePlugin, firebaseConfig)
-  app.use(SanctumPlugin, firebaseConfig)
+  app.use(SanctumPlugin)
   app.use(SupabasePlugin, supabaseConfig)
 
   app.use(AuthPlugin, {
-    default: 'sanctum',
+    default: 'firebase',
     providers: {
       firebase: {
         features: {
@@ -62,6 +65,7 @@ export default boot(({ app }) => {
           authState: useFirebaseAuthState,
           authRedirector: useFirebaseAuthRedirector,
           passwordResetViaEmail: useFirebasePasswordResetViaEmail,
+          updatePassword: useFirebaseUpdatePassword,
         },
       },
       sanctum: {
@@ -76,6 +80,7 @@ export default boot(({ app }) => {
           authState: useSanctumAuthState,
           authRedirector: useSanctumAuthRedirector,
           passwordResetViaEmail: useSupabaseSanctumResetViaEmail,
+          updatePassword: useSanctumUpdatePassword,
         },
       },
       supabase: {
@@ -90,6 +95,7 @@ export default boot(({ app }) => {
           authState: useSupabaseAuthState,
           authRedirector: useSupabaseAuthRedirector,
           passwordResetViaEmail: useSupabasePasswordResetViaEmail,
+          updatePassword: useSupabaseUpdatePassword,
         },
       },
     },

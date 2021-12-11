@@ -53,8 +53,9 @@
   ],
   "dependencies": {
     "firebase": "^9.3.0",
+    "auth-composables": "^1.0.0-alpha.16",
     "@supabase/supabase-js": "^1.28.5",
     "firebase-composables": "^1.0.0-alpha.22",
-    "supabase-composables": "^1.0.0-alpha.1"
+    "supabase-composables": "^1.0.0-alpha.11"
   }
 }

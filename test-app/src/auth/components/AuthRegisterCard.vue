@@ -12,6 +12,7 @@ const {
   validationErrors,
   hasValidationErrors,
   customFields,
+  registered,
 } = useRegister()
 
 </script>
@@ -36,6 +37,7 @@ const {
 
     <!-- Register Button -->
     <q-btn
+      v-if="!registered"
       :loading="loading"
       class="q-mt-sm full-width"
       color="primary"
@@ -43,5 +45,29 @@ const {
       unelevated
       @click="onRegisterClicked"
     />
+
+    <q-dialog
+      :model-value="registered"
+      persistent
+    >
+      <q-card>
+        <q-card-section>
+          <h5 class="q-my-md">
+            Account Created!
+          </h5>
+          <div class="q-my-md">
+            Look for a confirmation email in your inbox to get started!
+          </div>
+        </q-card-section>
+        <q-btn
+          label="Login Page"
+          color="primary"
+          unelevated
+          no-caps
+          class="full-width"
+          @click="$router.push({ name: 'auth.login' })"
+        />
+      </q-card>
+    </q-dialog>
   </q-card>
 </template>
